@@ -3,7 +3,7 @@ import StaticMap from 'react-map-gl';
 import DeckGL from '@deck.gl/react';
 import { PolygonLayer, GeoJsonLayer } from '@deck.gl/layers';
 import { BrushingExtension } from '@deck.gl/extensions';
-import { scaleSequential, interpolateViridis, rgb } from 'd3';
+import { rgb } from 'd3';
 
 
 export default function Map({
@@ -15,17 +15,10 @@ export default function Map({
   hexsPressureEnabled,
   blocksAccesibilityEnabled,
   brushEnabled,
-
+  blocksPressureCm,
+  hexsPressureCm,
+  blocksAccesibilityCm,
 }) {
-
-  let blocksPressureCm = scaleSequential(interpolateViridis)
-  .domain([0, 1.5]);
-
-  let hexsPressureCm = scaleSequential(interpolateViridis)
-  .domain([-12, 84]);
-
-  let blocksAccesibilityCm = scaleSequential(interpolateViridis)
-  .domain([0, 0.0119]);
 
   const [hoverInfo, setHoverInfo] = React.useState({});
 

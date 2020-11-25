@@ -32,3 +32,13 @@
 .controls > button:active {
   background-color: #555;
 }
+
+.layout {
+    display: table;
+    width: 100%;
+}
+
+.legend {
+    display: table-cell !important;
+    background: none repeat scroll 0% 0%;
+}
