@@ -3,7 +3,7 @@ import styles from './App.module.css';
 // import logo from './logo.svg';
 import './App.css';
 import Map from './Map.js';
-import { scaleSequential, interpolateViridis } from 'd3';
+import { scaleSequential, interpolateRdYlGn } from 'd3';
 
 function App() {
 
@@ -28,13 +28,15 @@ function App() {
   const [blocksAccesibilityEnabled, setBlocksAccesibility] = React.useState(false);
   const handleToggleBlocksAccesibility = () => setBlocksAccesibility(!blocksAccesibilityEnabled)
 
-  let blocksPressureCm = scaleSequential(interpolateViridis)
-  .domain([0, 1.5]);
+  // presure verde-> rojo
+  let blocksPressureCm = scaleSequential(interpolateRdYlGn)
+  .domain([1.5, 0]);
 
-  let hexsPressureCm = scaleSequential(interpolateViridis)
-  .domain([-12, 84]);
+  let hexsPressureCm = scaleSequential(interpolateRdYlGn)
+  .domain([84, -12]);
 
-  let blocksAccesibilityCm = scaleSequential(interpolateViridis)
+  // accesibility rojo -> verde
+  let blocksAccesibilityCm = scaleSequential(interpolateRdYlGn)
   .domain([0, 0.0119]);
 
   const blocksPressureCmTicks = blocksPressureCm.ticks(5);

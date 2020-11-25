@@ -5,7 +5,6 @@ import { PolygonLayer, GeoJsonLayer } from '@deck.gl/layers';
 import { BrushingExtension } from '@deck.gl/extensions';
 import { rgb } from 'd3';
 
-
 export default function Map({
   width,
   height,
